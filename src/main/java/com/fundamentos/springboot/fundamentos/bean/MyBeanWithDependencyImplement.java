@@ -1,5 +1,8 @@
 package com.fundamentos.springboot.fundamentos.bean;
 
+import org.apache.juli.logging.Log;
+import org.apache.juli.logging.LogFactory;
+
 /**
  * System:                 CleanBnB
  * Name:                   MyBeanWithDependencyImplement
@@ -11,6 +14,7 @@ package com.fundamentos.springboot.fundamentos.bean;
  */
 public class MyBeanWithDependencyImplement implements MyBeanWithDependency
 {
+    Log LOGGER = LogFactory.getLog(MyBeanWithDependencyImplement.class);
     private MyOperation _myOperation;
 
     public MyBeanWithDependencyImplement(MyOperation myOperation)
@@ -21,7 +25,9 @@ public class MyBeanWithDependencyImplement implements MyBeanWithDependency
     @Override
     public void printWithDependency()
     {
+        LOGGER.info("En el metodo printWithDependency ");
         int number =1;
+        LOGGER.debug("el numero enviado como parametro es "+number);
         System.out.println(_myOperation.sum(number));
         System.out.println("Implementacion de un bean dentro de un bean con dependencia");
 

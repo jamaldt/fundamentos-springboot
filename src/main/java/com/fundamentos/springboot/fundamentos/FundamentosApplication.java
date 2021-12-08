@@ -5,6 +5,8 @@ import com.fundamentos.springboot.fundamentos.bean.MyBeanWithDependency;
 import com.fundamentos.springboot.fundamentos.bean.MyBeanWithProperties;
 import com.fundamentos.springboot.fundamentos.component.ComponentDependency;
 import com.fundamentos.springboot.fundamentos.pojo.UserPojo;
+import org.apache.juli.logging.Log;
+import org.apache.juli.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FundamentosApplication implements CommandLineRunner
 {
 
+	Log LOGGER = LogFactory.getLog(FundamentosApplication.class);
 	private ComponentDependency componentDependency;
 	private MyBean myBean;
 	private MyBeanWithDependency _myBeanWithDependency;
@@ -46,6 +49,7 @@ public class FundamentosApplication implements CommandLineRunner
 		_myBeanWithDependency.printWithDependency();
 		System.out.println(_myBeanWithProperties.function());
 		System.out.println(_userPojo.getEmail() +"-"+ _userPojo.getPassword());
+		LOGGER.error("este es un error");
 
 	}
 }
