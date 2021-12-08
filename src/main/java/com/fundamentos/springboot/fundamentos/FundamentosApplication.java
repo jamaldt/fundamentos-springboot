@@ -84,7 +84,12 @@ public class FundamentosApplication implements CommandLineRunner
 		_userRepository.findAndSort("mari", Sort.by("id").descending())
 			.stream()
 			.forEach(user-> LOGGER.info("User with method sort "+ user));
+
+		_userRepository.findByName("maria")
+			.stream()
+			.forEach(user-> LOGGER.info("User method"+user));
 	}
+
 	public void ejemplosAnteriores(){
 		componentDependency.saludar();
 		myBean.print();
