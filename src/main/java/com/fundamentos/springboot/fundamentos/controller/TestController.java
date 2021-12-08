@@ -21,6 +21,6 @@ public class TestController
     @RequestMapping
     @ResponseBody
     public ResponseEntity<String> function(){
-        return  new ResponseEntity<>("hello from controller", HttpStatus.OK);
+        return  new ResponseEntity<>("hello from controller cambio 2", HttpStatus.OK);
     }
 }
